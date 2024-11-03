@@ -1,4 +1,10 @@
 {
+    "left":{
+        "selector": "Languages"
+    },
+    "right":{
+        "selector": "Table of content"
+    },
     "first":{
         "1": "1 Column",
         "2": "2 Column",

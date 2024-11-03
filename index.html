@@ -11,28 +11,119 @@
         });
     </script>
 
+    <!-- CDN FOR I18NEXT -->
     <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
     <script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.js"></script>
     <script src="https://unpkg.com/i18next-browser-languagedetector@latest/i18nextBrowserLanguageDetector.js"></script>
+
+    <!-- GASP SCROLLTRIGGER -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>    
 
     <title>i18next Demo</title>
 
     <link href="./src/output.css" rel="stylesheet">
 </head>
-<body class="bg-center" style="background-image: url('/src/img/background.png'); height: 5000px;">    
+<body class="bg-center" style="background-image: url('/src/img/background.png'); background-attachment: fixed;">
+    <section class="grid grid-cols-12">
+        <!-- LEFT SECTION -->
+        <div id="translations-box" class="order-2 sm:order-1 col-span-12 sm:col-span-2 sm:col-start-2 container p-8 flex justify-end">
+            <div class="container w-72 sm:w-32 mt-16">
+                <section id="translations-box-placement" class="grid grid-cols-1 gap-5 bg-gray-100 shadow-xl rounded-lg font-light">
+                    <div class="bg-slate-400 rounded-t-md py-3">
+                        <h3 data-i18n="left.selector" class="text-center text-2xl">Języki</h3>
+                    </div>
+                    <button id="lang-en" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">EN</button>
+                    <button id="lang-pl" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">PL</button>
+                    <button id="lang-de" class="mb-3 mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">DE</button>
+                </section>
+            </div>
+        </div>
+        <!-- MIDDLE SECTION -->
+        <div class="order-1 sm:order-2 col-span-12 sm:col-span-6 sm:col-start-4 container p-8 ">
+            <div>
+                <h1 class="text-center text-3xl sm:text-5xl font-thin mb-5">i18next - Demo Website</h1>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <section id="sticky-section1">
+                    <div id="target1row" class="grid grid-cols-12 gap-2" style="height: 600px;">
+                        <div class="col-span-12 sm:col-span-12 bg-gray-400 text-center rounded-xl p-2 self-start">
+                            <h2 class="font-light text-l">Przykład dla tłumaczenia</h2>      
+                        </div>
+                    </div>
+                </section>
+    
+                <section id="sticky-section2">
+                    <div id="target1row" class="grid grid-cols-12 gap-2" style="height: 600px;">
+                        <div class="col-span-9 sm:col-span-10 bg-gray-400 text-center rounded-xl p-2 self-start">
+                            <h2 class="font-light text-l">Przykład dla tłumaczenia</h2>      
+                        </div>
+                        <button id="scrollButton2" data-i18n="first.1" class="col-span-3 sm:col-span-2 bg-gray-200 text-center rounded-xl hover:bg-gray-700 transition duration-300 ease-in-out shadow-2xl self-start">Kolumna 1</button>
+                        <div id="target1row">
+        
+                        </div>
+                    </div>
+                </section>
+    
+                <section id="sticky-section3">
+                    <div id="target1row" class="grid grid-cols-12 gap-2" style="height: 600px;">
+                        <div class="col-span-9 sm:col-span-10 bg-gray-400 text-center rounded-xl p-2 self-start">
+                            <h2 class="font-light text-l">Przykład dla tłumaczenia</h2>      
+                        </div>
+                        <button id="scrollButton3" data-i18n="first.1" class="col-span-3 sm:col-span-2 bg-gray-200 text-center rounded-xl hover:bg-gray-700 transition duration-300 ease-in-out shadow-2xl self-start">Kolumna 1</button>
+                        <div id="target1row">
+        
+                        </div>
+                    </div>
+                </section>
+    
+                <section id="sticky-section4">
+                    <div id="target1row" class="grid grid-cols-12 gap-2" style="height: 600px;">
+                        <div class="col-span-9 sm:col-span-10 bg-gray-400 text-center rounded-xl p-2 self-start">
+                            <h2 class="font-light text-l">Przykład dla tłumaczenia</h2>      
+                        </div>
+                        <button id="scrollButton4" data-i18n="first.1" class="col-span-3 sm:col-span-2 bg-gray-200 text-center rounded-xl hover:bg-gray-700 transition duration-300 ease-in-out shadow-2xl self-start">Kolumna 1</button>
+                        <div id="target1row">
+        
+                        </div>
+                    </div>
+                </section>
+            </div>
+    
+    
+            
+            
+        </div>
+        <!-- RIGHT SECTION -->
+        <div id="content-box" class="order-3 sm:order-3 col-span-12 sm:col-span-2 sm:col-start-10 container p-8 flex justify-start">
+            <div class="container w-72 sm:w-56 mt-16">
+                <section id="content-box-placement" class="grid grid-cols-1 gap-5 bg-gray-100 shadow-xl rounded-lg font-light">
+                    <div class="bg-slate-400 rounded-t-md py-3">
+                        <h3 data-i18n="right.selector" class="text-center text-2xl">Table of content</h3>
+                    </div>
+                    <button id="lang-en" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">EN</button>
+                    <button id="lang-pl" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">PL</button>
+                    <button id="lang-de" class="mb-3 mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">DE</button>
+                </section>
+            </div>
+        </div>
+    </section>    
+
+
     <!-- Buttons for translation -->
     <div class="fixed bottom-0 right-0 m-2">
         <button class="major-mono-display-p" type="button" id="lang-en">en</button>
         <button class="major-mono-display-p" type="button" id="lang-pl">pl</button>
     </div>
-
-    <div class="container mx-auto max-w-4xl p-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <button data-i18n="first.1" class="bg-gray-200 text-center p-5 rounded-xl hover:bg-gray-700 transition duration-300 ease-in-out">Kolumna 1</button>
-            <button data-i18n="first.2" class="bg-gray-300 text-center p-5 rounded-xl">Kolumna 2</button>
-            <button data-i18n="first.3" class="bg-gray-400 text-center p-5 rounded-xl">Kolumna 3</button>
-        </div>
-    </div>
+    <!-- SCRIPT FOR TRANSLATION -->
     <script type="module" src="/src/i18next.js"></script>
+    <script>
+        document.getElementById("scrollButton1").addEventListener("click", function() {
+          const targetElement = document.getElementById("target1row");
+          targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+    </script>
+
+    <script src="/src/scrolltrigger.js"></script>
 </body>
 </html>

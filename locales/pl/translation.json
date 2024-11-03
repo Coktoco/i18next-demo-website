@@ -1,4 +1,10 @@
-{
+{   
+    "left":{
+        "selector": "Języki"
+    },
+    "right":{
+        "selector": "Spis treści"
+    },
     "first":{
         "1": "1 Kolumna",
         "2": "2 Kolumna",
