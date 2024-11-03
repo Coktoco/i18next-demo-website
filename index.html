@@ -20,16 +20,23 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>    
 
+    <!-- GOOGLE FONTS DM Serif Text  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/src/styles.css">
+
     <title>i18next Demo</title>
 
     <link href="./src/output.css" rel="stylesheet">
 </head>
-<body class="bg-center" style="background-image: url('/src/img/background.png'); background-attachment: fixed;">
+<body class="bg-center roboto-light" style="background-image: url('/src/img/background.png'); background-attachment: fixed;">
     <section class="grid grid-cols-12">
         <!-- LEFT SECTION -->
         <div id="translations-box" class="order-2 sm:order-1 col-span-12 sm:col-span-2 sm:col-start-2 container p-8 flex justify-end">
             <div class="container w-72 sm:w-32 mt-16">
-                <section id="translations-box-placement" class="grid grid-cols-1 gap-5 bg-gray-100 shadow-xl rounded-lg font-light">
+                <section id="translations-box-placement" class="grid grid-cols-1 gap-5 bg-gray-100 shadow-xl rounded-lg roboto-light">
                     <div class="bg-slate-400 rounded-t-md py-3">
                         <h3 data-i18n="left.selector" class="text-center text-2xl">Języki</h3>
                     </div>
