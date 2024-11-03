@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const userLang = navigator.language || navigator.userLanguage; 
+            document.documentElement.lang = userLang.split('-')[0]; 
+        });
+    </script>
+
+    <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector@latest/i18nextBrowserLanguageDetector.js"></script>
+
+    <title>i18next Demo</title>
+
+    <link href="./src/output.css" rel="stylesheet">
+</head>
+<body class="bg-center" style="background-image: url('/src/img/background.png'); height: 5000px;">    
+    <!-- Buttons for translation -->
+    <div class="fixed bottom-0 right-0 m-2">
+        <button class="major-mono-display-p" type="button" id="lang-en">en</button>
+        <button class="major-mono-display-p" type="button" id="lang-pl">pl</button>
+    </div>
+
+    <div class="container mx-auto max-w-4xl p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <button data-i18n="first.1" class="bg-gray-200 text-center p-5 rounded-xl hover:bg-gray-700 transition duration-300 ease-in-out">Kolumna 1</button>
+            <button data-i18n="first.2" class="bg-gray-300 text-center p-5 rounded-xl">Kolumna 2</button>
+            <button data-i18n="first.3" class="bg-gray-400 text-center p-5 rounded-xl">Kolumna 3</button>
+        </div>
+    </div>
+    <script type="module" src="/src/i18next.js"></script>
+</body>
+</html>
