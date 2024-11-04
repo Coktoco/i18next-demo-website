@@ -45,7 +45,7 @@ Additionally, GSAP's ScrollTrigger is used to create seamless and captivating sc
    ```bash
    npm install
 
-Usage
+## Usage
 
 After installation, you can:
 
@@ -53,12 +53,12 @@ After installation, you can:
 	•	Interact with sections that trigger animations based on scroll position, thanks to GSAP’s ScrollTrigger.
 	•	Easily copy and understand the code thanks to Prism.js highlighting technology.
 
-Contributing
+## Contributing
 
 If you’d like to contribute, please fork the repository and create a pull request with detailed information on your proposed changes. All contributions are welcome, including new translation resources, UI enhancements, or additional animations.
 
-License
+## License
 
 This project is licensed under the MIT License.
 
-Feel free to customize the project, explore various translation features, and extend the use of GSAP animations to create a truly engaging experience for users around the world.
+Feel free to customize the project and explore various translation features.
