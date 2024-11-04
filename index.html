@@ -29,18 +29,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 
-    <link rel="stylesheet" href="/src/styles.css">
+    <link rel="stylesheet" href="./src/styles.css">
 
     <title>i18next Demo</title>
 
     <link href="./src/output.css" rel="stylesheet">
 </head>
-<body class="bg-center roboto-light" style="background-image: url('/src/img/background.png'); background-attachment: fixed;">
+<body class="bg-center roboto-light" style="background-image: url('./src/img/background.png'); background-attachment: fixed;">
     <section class="grid grid-cols-12 ">
         <!-- TOP TITLE CARD-->
         <div class="col-span-12 mx-auto my-9">
             <div class="grid grid-cols-12 bg-gradient-to-t from-teal-300 to-teal-200 p-3 rounded-md shadow-lg">
-                <img class="col-span-1" src="/src/img/inext_logo_icon_248054.png" style="height: 45px;">
+                <img class="col-span-1" src="./src/img/inext_logo_icon_248054.png" style="height: 45px;">
                 <h1 data-i18n="title.name" class="col-span-11 text-center text-3xl sm:text-5xl font-thin">i18next - Demo Website</h1>
             </div>
         </div>
@@ -307,7 +307,7 @@ document.getElementById('output_date').innerText = i18next.t('date', { date: dat
         <button class="major-mono-display-p" type="button" id="lang-pl">pl</button>
     </div>
     <!-- SCRIPT FOR TRANSLATION -->
-    <script type="module" src="/src/i18next.js"></script>
+    <script type="module" src="./src/i18next.js"></script>
     <script>
         document.getElementById("content-box-placement").addEventListener("click", function(event) {
             const targetButton = event.target;
@@ -321,6 +321,6 @@ document.getElementById('output_date').innerText = i18next.t('date', { date: dat
         });
     </script>
 
-    <script src="/src/scrolltrigger.js"></script>
+    <script src="./src/scrolltrigger.js"></script>
 </body>
 </html>
