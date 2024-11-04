@@ -63,6 +63,12 @@
         "explanation_1": "1. i18next.detectLanguage(): Funkcja wykrywa język użytkownika. (* .use(i18nextBrowserLanguageDetector) jest to wymagane, aby funkcja działała poprawnie *)",
         "explanation_2": "2. document.getElementById(‘detected_language’).innerText: Wyświetla komunikat o wykrytym języku w elemencie HTML z id detected_language."
     },
+    "section6": {
+      "title": "O tej stronie",
+      "explanation_1": "Ta strona została stworzona jako część prezentacji o i18next.",
+      "explanation_2": "Cały kod źródłowy strony dostępny jest tutaj: ",
+      "explanation_3": "Twórca: Albert Winiarski "
+    },
     "right": {
         "selector": "Spis treści"
     },

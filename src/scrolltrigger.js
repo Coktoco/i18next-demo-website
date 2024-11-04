@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         pinSpacing: false             
     });
 
-    const sections = ["#sticky-section1", "#sticky-section2", "#sticky-section3", "#sticky-section4"];
+    const sections = ["#sticky-section1", "#sticky-section2", "#sticky-section3", "#sticky-section4", "#sticky-section5", "#sticky-section6" ];
     
     sections.forEach((section, index) => {
         ScrollTrigger.create({

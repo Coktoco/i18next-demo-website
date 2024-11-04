@@ -60,6 +60,12 @@
         "explanation_1": "1. i18next.language: This function detects the user's language. (* .use(i18nextBrowserLanguageDetector) is required for this function to work properly *)",
         "explanation_2": "2. document.getElementById(‘detected_language’).innerText: This method displays the detected language message in the HTML element with id detected_language."
     },
+    "section6": {
+        "title": "About this website",
+        "explanation_1": "This website was created as part of a presentation about i18next.",
+        "explanation_2": "The entire website's source code is available here: ",
+        "explanation_3": "Creator: Albert Winiarski "
+    },
     "right": {
         "selector": "Table of contents"
     },

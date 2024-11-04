@@ -34,7 +34,7 @@ function updateTranslations() {
   document.getElementById('output_items_plural').innerText = i18next.t('items', { count: 5 });
 
   const amount = 1234.56;
-  const date = new Date(); // Example date
+  const date = new Date(); 
   const userLocale = i18next.language || 'en-US'; 
 
   document.getElementById('output_date').innerText = 
