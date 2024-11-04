@@ -1,13 +1,73 @@
 {
-    "left":{
-        "selector": "Languages"
+    "greeting": "Hello user!",
+    "farewell": "Goodbye",
+    "title": {
+        "name": "i18next - Demo Website"
     },
-    "right":{
-        "selector": "Table of content"
+    "source": "Source code explanation",
+    "welcome_user": "Welcome, {{name}}!",
+    "age_message": "You are {{age}} years old.",
+    "items": "You have {{count}} item.",
+    "items_other": "You have {{count}} items.",
+
+    "currency": "Your balance is {{amount}} dollars.",
+    "date": "Today is {{date}}.",
+
+    "today": "Today's date is {{date, format}}.",
+    "detected_language_message": "The detected language is {{lang}}.",
+
+    "section1": {
+        "title": "1. Basic Translation",
+        "example": "Example implementation:",
+        "source": "Source Code:",
+        "explanation_1": "1. i18next.init(): This function initializes i18next and accepts two arguments: a configuration object and a callback function.",
+        "explanation_2": "2. lng: 'pl': Sets the default language to Polish.",
+        "explanation_3": "3. resources: Contains translation resources for each language, where we define translation keys. In this case, we have greetings and farewells for both English and Polish.",
+        "explanation_4": "4. Callback function: It is called after initialization is complete. We use the method t('greeting') to get the translated greeting text and then display it in the HTML element with id output."
     },
-    "first":{
-        "1": "1 Column",
-        "2": "2 Column",
-        "3": "3 Column"
+    "section2": {
+        "title": "2. Interpolation",
+        "example": "Example implementation:",
+        "source": "Source Code:",
+        "explanation_1": "1. i18next.t(‘welcome_user’, { name: 'New user' }): This function translates text based on the key welcome_user and performs interpolation, replacing the placeholder {{name}} with the value 'New user'.",
+        "explanation_2": "2. i18next.t(‘age_message’, { age: 25 }): This function translates text based on the key age_message, and the placeholder {{age}} is replaced with the value 25.",
+        "explanation_3": "3. resources: Contains translation resources, including the key welcome_user which has the value “Welcome, {{name}}!” and the key age_message which reads “You are {{age}} years old.” These values include placeholders that will be replaced with actual data."
+    },
+    "section3": {
+        "title": "3. Pluralization",
+        "example": "Example implementation:",
+        "source": "Source Code:",
+        "explanation_1": "1. i18next.t(‘items’, { count: 1 }): This function translates text based on the key items and handles singular forms, replacing the placeholder {{count}} with the value 1.",
+        "explanation_2": "2. i18next.t(‘items_other’, { count: 2 }): This function translates text based on the key items_other and handles plural forms, replacing the placeholder {{count}} with the value 2.",
+        "explanation_3": "3. resources: Contains translation resources, including the key items which has the value “You have {{count}} item.” and the key items_other which reads “You have {{count}} items.”",
+        "explanation_4": "4. document.getElementById(‘output_items’).innerText: This method displays the translated singular form in the HTML element with id output_items.",
+        "explanation_5": "5. document.getElementById(‘output_items_plural’).innerText: Used to display the translated plural form in the HTML element with id output_items_plural."
+    },
+    "section4": {
+        "title": "4. Formatting",
+        "example": "Example implementation:",
+        "source": "Source Code:",
+        "explanation_1": "1. i18next.t(‘today’, { date: today }): This function translates text based on the key today, where the placeholder {{date}} will be replaced with the formatted date object.",
+        "explanation_2": "2. resources: Contains translation resources, including the key today which has the value “Today's date is {{date, format}}.”",
+        "explanation_3": "3. document.getElementById(‘output_date’).innerText: This method displays the translated text with the formatted date in the HTML element with id output_date."
+    },
+    "section5": {
+        "title": "5. Language Detection",
+        "example": "Example implementation:",
+        "source": "Source Code:",
+        "explanation_1": "1. i18next.detectLanguage(): This function detects the user's language.",
+        "explanation_2": "2. document.getElementById(‘detected_language’).innerText: This method displays the detected language message in the HTML element with id detected_language."
+    },
+    "right": {
+        "selector": "Table of contents"
+    },
+    "left": {
+        "selector": "Language"
+    },
+    "button": {
+        "en": "EN",
+        "pl": "PL",
+        "de": "DE"
     }
+
 }

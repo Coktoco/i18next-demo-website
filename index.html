@@ -25,6 +25,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
+    <!-- PRISM JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
     <link rel="stylesheet" href="/src/styles.css">
 
     <title>i18next Demo</title>
@@ -32,85 +36,265 @@
     <link href="./src/output.css" rel="stylesheet">
 </head>
 <body class="bg-center roboto-light" style="background-image: url('/src/img/background.png'); background-attachment: fixed;">
-    <section class="grid grid-cols-12">
+    <section class="grid grid-cols-12 ">
+        <!-- TOP TITLE CARD-->
+        <div class="col-span-12 mx-auto my-9">
+            <div class="grid grid-cols-12 bg-gradient-to-t from-teal-300 to-teal-200 p-3 rounded-md shadow-lg">
+                <img class="col-span-1" src="/src/img/inext_logo_icon_248054.png" style="height: 45px;">
+                <h1 data-i18n="title.name" class="col-span-11 text-center text-3xl sm:text-5xl font-thin">i18next - Demo Website</h1>
+            </div>
+        </div>
+
         <!-- LEFT SECTION -->
-        <div id="translations-box" class="order-2 sm:order-1 col-span-12 sm:col-span-2 sm:col-start-2 container p-8 flex justify-end">
-            <div class="container w-72 sm:w-32 mt-16">
+        <div id="translations-box" class="order-2 sm:order-1 col-span-12 sm:col-span-2 sm:col-start-2 container pr-3 flex justify-end">
+            <div class="container w-72 sm:w-32">
+                <!-- SPACER -->
+                <div style="height: 28vh;"></div>
+                <!-- END SPACER -->
                 <section id="translations-box-placement" class="grid grid-cols-1 gap-5 bg-gray-100 shadow-xl rounded-lg roboto-light">
-                    <div class="bg-slate-400 rounded-t-md py-3">
-                        <h3 data-i18n="left.selector" class="text-center text-2xl">Języki</h3>
+                    <div class="bg-gradient-to-t from-teal-500 to-teal-400 rounded-t-md py-3">
+                        <h3 data-i18n="left.selector" class="text-center text-2xl">Languages</h3>
                     </div>
-                    <button id="lang-en" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">EN</button>
-                    <button id="lang-pl" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">PL</button>
-                    <button id="lang-de" class="mb-3 mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">DE</button>
+                    <button id="lang-en" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md" data-i18n="button.en">EN</button>
+                    <button id="lang-pl" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md" data-i18n="button.pl">PL</button>
+                    <button id="lang-de" class="mb-3 mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md" data-i18n="button.de">DE</button>
                 </section>
             </div>
         </div>
+
         <!-- MIDDLE SECTION -->
-        <div class="order-1 sm:order-2 col-span-12 sm:col-span-6 sm:col-start-4 container p-8 ">
-            <div>
-                <h1 class="text-center text-3xl sm:text-5xl font-thin mb-5">i18next - Demo Website</h1>
+        <div class="order-1 sm:order-2 col-span-12 sm:col-span-6 sm:col-start-4 container ">
+            <div class="grid grid-cols-1">
+                <!-- 1 SECTION -->
+                <section id="sticky-section1" class="shadow-lg mb-6">
+                    <div class="grid grid-cols-12 gap-x-3" >
+                        <div id="scrollButton1" class="col-span-12 sm:col-span-12 bg-gradient-to-t from-teal-500 to-teal-400 rounded-t-md p-2 ">
+                            <h2 class="font-light text-2xl" data-i18n="section1.title">1. Basic Translation</h2>      
+                        </div>
+                        <div class="col-span-12 sm:col-span-12 bg-slate-50 rounded-md " >
+                            <h3 class="bg-gray-200 text-xl p-2 " data-i18n="section1.example">Example implementation:</h3>
+                            <div id="output" class="text-xl px-2 py-5 text-center"></div>
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="section1.source">Source Code:</h3>
+<pre><code class="language-javascript">
+    // JavaScript
+    i18next.init({
+        lng: 'pl', 
+        resources: {
+        en: { translation: { greeting: "Hello, user!", farewell: "See you soon!" } },
+        pl: { translation: { greeting: "Witaj, użytkowniku!", farewell: "Do zobaczenia!" } }
+        }
+    }, function(err, t) {
+        document.getElementById('output').innerText = t('greeting');
+    });
+</code>
+</pre>
+<pre><code class="language-html">
+    &lt;!-- HTML -->
+    &lt;div id="output">&lt;/div>
+</code>
+</pre>
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="source">Explanation of the Code:</h3>
+                            <p class="p-2" data-i18n="section1.explanation_1">
+                                1. i18next.init(): Ta funkcja inicjalizuje i18next i akceptuje dwa argumenty: obiekt konfiguracyjny i funkcję zwrotną.
+                            </p>
+                            <p class="p-2" data-i18n="section1.explanation_2">
+                                2. lng: 'pl': Ustawia domyślny język na polski.
+                            </p>
+                            <p class="p-2" data-i18n="section1.explanation_3">
+                                3. resources: Zawiera zasoby tłumaczeń dla każdego języka, gdzie definiujemy klucze tłumaczeń. W tym przypadku mamy powitania i pożegnania dla języka angielskiego i polskiego.
+                            </p>
+                            <p class="p-2" data-i18n="section1.explanation_4">
+                                4. Funkcja zwrotna: Jest wywoływana po zakończeniu inicjalizacji. Używamy metody t('greeting'), aby uzyskać przetłumaczony tekst powitania, a następnie wyświetlamy go w elemencie HTML o id output.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 2 SECTION -->
+                <section id="sticky-section2" class="shadow-lg mb-6">
+                    <div class="grid grid-cols-12 gap-x-3" >
+                        <div id="scrollButton2" class="col-span-12 sm:col-span-12 bg-gradient-to-t from-teal-500 to-teal-400 rounded-t-md p-2 ">
+                            <h2 class="font-light text-2xl" data-i18n="section2.title">2. Interpolation</h2>      
+                        </div>
+                        <div class="col-span-12 sm:col-span-12 bg-slate-50 " >
+                            <h3 class="bg-gray-200 text-xl p-2 rounded-t-md" data-i18n="section2.example">Example implementation:</h3>
+                                <div id="output1" class="text-xl px-2 py-5 text-center"></div>
+                                <div id="output_age" class="text-xl px-2 py-5 text-center"></div>
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="section2.source">Source Code:</h3>
+<pre><code class="language-javascript">
+    / en.json
+    {
+      "welcome_user": "Welcome, {{name}}!",
+      "age_message": "You are {{age}} years old."
+    }
+</code>
+</pre>
+<pre><code class="language-javascript">
+// JavaScript
+document.getElementById('output').innerText = i18next.t('welcome_user', { name: 'New user' });
+document.getElementById('output_age').innerText = i18next.t('age_message', { age: 25 });
+</code>
+</pre>     
+<pre><code class="language-html">
+    &lt;!-- HTML  -->
+    &lt;div id="output">&lt;/div>
+    &lt;div id="output_age">&lt;/div>
+</code>
+</pre>                          
+
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="source">Explanation of the Code:</h3>
+                            <p class="p-2" data-i18n="section2.explanation_1">
+                                1. i18next.t('welcome_user', { name: 'Nowy użytkownik' }): Ta funkcja tłumaczy tekst na podstawie klucza welcome_user i wykonuje interpolację, zastępując placeholder {{name}} wartością 'Nowy użytkownik'.
+                            </p>
+                            <p class="p-2" data-i18n="section2.explanation_2">
+                                2. i18next.t('age_message', { age: 25 }): Ta funkcja tłumaczy tekst na podstawie klucza age_message, a placeholder {{age}} jest zastępowany wartością 25.
+                            </p>
+                            <p class="p-2" data-i18n="section2.explanation_3">
+                                3. resources: Zawiera zasoby tłumaczeń, w tym klucz welcome_user, który ma wartość “Witaj, {{name}}!” oraz klucz age_message, który brzmi “Masz {{age}} lat.” Te wartości zawierają placeholdery, które będą zastąpione rzeczywistymi danymi.
+                            </p>
+                        </div>         
+                    </div>
+                </section>
+
+                <!-- 3 SECTION -->
+                <section id="sticky-section3" class="shadow-lg mb-6">
+                    <div class="grid grid-cols-12 gap-x-3" >
+                        <div id="scrollButton3" class="col-span-12 sm:col-span-12 bg-gradient-to-t from-teal-500 to-teal-400 rounded-t-md p-2 ">
+                            <h2 class="font-light text-2xl" data-i18n="section3.title">3. Pluralization</h2>      
+                        </div>
+                        <div class="col-span-12 sm:col-span-12 bg-slate-50 " >
+                            <h3 class="bg-gray-200 text-xl p-2 rounded-t-md" data-i18n="section3.example">Example implementation:</h3>
+                                <div id="output_items" class="text-xl px-2 py-5 text-center"></div>
+                                <div id="output_items_plural" class="text-xl px-2 py-5 text-center"></div>
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="section3.source">Source Code:</h3>
+<pre><code class="language-javascript">
+    / en.json
+    {
+      "items": "You have {{count}} item.",
+      "items_other": "You have {{count}} items."
+    }
+</code>
+</pre>
+<pre><code class="language-javascript">
+// JavaScript
+document.getElementById('output_items').innerText = i18next.t('items', { count: 1 });
+document.getElementById('output_items_plural').innerText = i18next.t('items_other', { count: 2 });
+</code>
+</pre>      
+<pre><code class="language-html">
+    &lt;!-- HTML  -->
+    &lt;div id="output_items">&lt;/div>
+    &lt;div id="output_items_plural">&lt;/div>
+</code>
+</pre>                            
+
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="source">Explanation of the Code:</h3>
+                            <p class="p-2" data-i18n="section3.explanation_1">
+                                1. i18next.t('items', { count: 1 }): Ta funkcja tłumaczy tekst na podstawie klucza items i obsługuje formy pojedyncze, zastępując placeholder {{count}} wartością 1.
+                            </p>
+                            <p class="p-2" data-i18n="section3.explanation_2">
+                                2. i18next.t('items_other', { count: 2 }): Ta funkcja tłumaczy tekst na podstawie klucza items_other i obsługuje formy mnogie, zastępując placeholder {{count}} wartością 2.
+                            </p>
+                            <p class="p-2" data-i18n="section3.explanation_3">
+                                3. resources: Zawiera zasoby tłumaczeń, w tym klucz items, który ma wartość “Masz {{count}} przedmiot.” oraz klucz items_other, który brzmi “Masz {{count}} przedmioty.”.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4 SECTION -->
+                <section id="sticky-section4" class="shadow-lg mb-6">
+                    <div class="grid grid-cols-12 gap-x-3" >
+                        <div id="scrollButton4" class="col-span-12 sm:col-span-12 bg-gradient-to-t from-teal-500 to-teal-400 rounded-t-md p-2 ">
+                            <h2 class="font-light text-2xl" data-i18n="section4.title">4. Formatting</h2>      
+                        </div>
+                        <div class="col-span-12 sm:col-span-12 bg-slate-50 " >
+                            <h3 class="bg-gray-200 text-xl p-2 rounded-t-md" data-i18n="section4.example">Example implementation:</h3>
+                                <div id="output_currency" class="text-xl px-2 py-5 text-center"></div>
+                                <div id="output_date" class="text-xl px-2 py-5 text-center"></div>
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="section4.source">Source Code:</h3>
+<pre><code class="language-javascript">
+    // en.json
+    {
+        "currency": "Your balance is {{amount}} dollars.",
+        "date": "Today is {{date}}."
+    }
+</code>
+</pre>
+<pre><code class="language-javascript">
+// JavaScript
+const amount = 1234.56;
+const date = new Date().toLocaleDateString();
+document.getElementById('output_currency').innerText = i18next.t('currency', { amount: amount.toFixed(2) });
+document.getElementById('output_date').innerText = i18next.t('date', { date: date });
+</code>
+</pre>       
+<pre><code class="language-html">
+    &lt;!-- HTML  -->
+    &lt;div id="output_date">&lt;/div>
+</code>
+</pre>   
+
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="source">Explanation of the Code:</h3>
+                            <p class="p-2" data-i18n="section4.explanation_1">
+                                1. i18next.t('today', { date: today }): Ta funkcja tłumaczy tekst na podstawie klucza today, gdzie placeholder {{date}} zostanie zastąpiony sformatowanym obiektem daty.
+                            </p>
+                            <p class="p-2" data-i18n="section4.explanation_2">
+                                2. resources: Zawiera zasoby tłumaczeń, w tym klucz today, który ma wartość “Dzisiejsza data to {{date, format}}.”.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5 SECTION -->
+                <section id="sticky-section5" class="shadow-lg mb-6">
+                    <div class="grid grid-cols-12 gap-x-3" >
+                        <div id="scrollButton5" class="col-span-12 sm:col-span-12 bg-gradient-to-t from-teal-500 to-teal-400 rounded-t-md p-2 ">
+                            <h2 class="font-light text-2xl" data-i18n="section5.title">5. Language Detection</h2>      
+                        </div>
+                        <div class="col-span-12 sm:col-span-12 bg-slate-50 " >
+                            <h3 class="bg-gray-200 text-xl p-2 rounded-t-md" data-i18n="section5.example">Example implementation:</h3>
+                                <div id="detected_language" class="text-xl px-2 py-5 text-center"></div>
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="section5.source">Source Code:</h3>
+<pre><code class="language-javascript">
+    // JavaScript
+    i18next.detectLanguage().then(lang => {
+        document.getElementById('detected_language').innerText = i18next.t('detected_language_message', { lang });
+    });
+</code>
+</pre>
+<pre><code class="language-html">
+    &lt;!-- HTML  -->
+    &lt;div id="detected_language">&lt;/div>
+</code>
+</pre>    
+                            <h3 class="bg-gray-200 text-xl p-2" data-i18n="section5.explanation">Explanation of the Code:</h3>
+                            <p class="p-2" data-i18n="section5.explanation.text">
+                                1. i18next.detectLanguage(): This function detects the user's language. <br>
+                                2. document.getElementById(‘detected_language’).innerText: This method displays the detected language message in the HTML element with id detected_language. <br>
+                            </p>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <div class="grid grid-cols-1 gap-4">
-                <section id="sticky-section1">
-                    <div id="target1row" class="grid grid-cols-12 gap-2" style="height: 600px;">
-                        <div class="col-span-12 sm:col-span-12 bg-gray-400 text-center rounded-xl p-2 self-start">
-                            <h2 class="font-light text-l">Przykład dla tłumaczenia</h2>      
-                        </div>
-                    </div>
-                </section>
-    
-                <section id="sticky-section2">
-                    <div id="target1row" class="grid grid-cols-12 gap-2" style="height: 600px;">
-                        <div class="col-span-9 sm:col-span-10 bg-gray-400 text-center rounded-xl p-2 self-start">
-                            <h2 class="font-light text-l">Przykład dla tłumaczenia</h2>      
-                        </div>
-                        <button id="scrollButton2" data-i18n="first.1" class="col-span-3 sm:col-span-2 bg-gray-200 text-center rounded-xl hover:bg-gray-700 transition duration-300 ease-in-out shadow-2xl self-start">Kolumna 1</button>
-                        <div id="target1row">
-        
-                        </div>
-                    </div>
-                </section>
-    
-                <section id="sticky-section3">
-                    <div id="target1row" class="grid grid-cols-12 gap-2" style="height: 600px;">
-                        <div class="col-span-9 sm:col-span-10 bg-gray-400 text-center rounded-xl p-2 self-start">
-                            <h2 class="font-light text-l">Przykład dla tłumaczenia</h2>      
-                        </div>
-                        <button id="scrollButton3" data-i18n="first.1" class="col-span-3 sm:col-span-2 bg-gray-200 text-center rounded-xl hover:bg-gray-700 transition duration-300 ease-in-out shadow-2xl self-start">Kolumna 1</button>
-                        <div id="target1row">
-        
-                        </div>
-                    </div>
-                </section>
-    
-                <section id="sticky-section4">
-                    <div id="target1row" class="grid grid-cols-12 gap-2" style="height: 600px;">
-                        <div class="col-span-9 sm:col-span-10 bg-gray-400 text-center rounded-xl p-2 self-start">
-                            <h2 class="font-light text-l">Przykład dla tłumaczenia</h2>      
-                        </div>
-                        <button id="scrollButton4" data-i18n="first.1" class="col-span-3 sm:col-span-2 bg-gray-200 text-center rounded-xl hover:bg-gray-700 transition duration-300 ease-in-out shadow-2xl self-start">Kolumna 1</button>
-                        <div id="target1row">
-        
-                        </div>
-                    </div>
-                </section>
-            </div>
-    
-    
-            
-            
         </div>
+
         <!-- RIGHT SECTION -->
-        <div id="content-box" class="order-3 sm:order-3 col-span-12 sm:col-span-2 sm:col-start-10 container p-8 flex justify-start">
-            <div class="container w-72 sm:w-56 mt-16">
-                <section id="content-box-placement" class="grid grid-cols-1 gap-5 bg-gray-100 shadow-xl rounded-lg font-light">
-                    <div class="bg-slate-400 rounded-t-md py-3">
+        <div id="content-box" class="order-3 sm:order-3 col-span-12 sm:col-span-2 sm:col-start-10 container flex pl-3 justify-start">
+            <div class="container w-72 sm:w-56">
+                <!-- SPACER -->
+                <div style="height: 28vh;"></div>
+                <!-- END SPACER -->
+                <section id="content-box-placement" class="grid grid-cols-1 gap-4 bg-gray-100 shadow-xl rounded-lg font-light">
+                    <div class="bg-gradient-to-t from-teal-500 to-teal-400 rounded-t-md py-3">
                         <h3 data-i18n="right.selector" class="text-center text-2xl">Table of content</h3>
                     </div>
-                    <button id="lang-en" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">EN</button>
-                    <button id="lang-pl" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">PL</button>
-                    <button id="lang-de" class="mb-3 mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">DE</button>
+                    <button data-target="sticky-section1" data-i18n="section1.title" id="section1.title" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">1. Basic Translation</button>
+                    <button data-target="sticky-section2" data-i18n="section2.title" id="section2.title" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">2. Interpolation</button>
+                    <button data-target="sticky-section3" data-i18n="section3.title" id="section3.title" class="mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">3. Pluralization</button>
+                    <button data-target="sticky-section4" data-i18n="section4.title" id="section4.title" class=" mx-6 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">4. Formatting</button>
+                    <button data-target="sticky-section5" data-i18n="section5.title" id="section5.title" class=" mx-6 mb-4 py-1 bg-slate-300 hover:bg-gray-400 transition duration-500 ease-in-out rounded-md">5. Language Detection</button>
+
                 </section>
             </div>
         </div>
@@ -125,9 +309,15 @@
     <!-- SCRIPT FOR TRANSLATION -->
     <script type="module" src="/src/i18next.js"></script>
     <script>
-        document.getElementById("scrollButton1").addEventListener("click", function() {
-          const targetElement = document.getElementById("target1row");
-          targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        document.getElementById("content-box-placement").addEventListener("click", function(event) {
+            const targetButton = event.target;
+            const targetId = targetButton.getAttribute("data-target");
+            if (targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+            }
         });
     </script>
 

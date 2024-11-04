@@ -1,13 +1,72 @@
-{   
-    "left":{
-        "selector": "Języki"
+{
+    "greeting": "Witaj użytkowniku!",
+    "farewell": "Do widzenia",
+    "title": {
+        "name": "i18next - Strona Demo"
     },
-    "right":{
+    "source": "Wyjaśnienie kodu źródłowego",
+    "welcome_user": "Witaj, {{name}}!",
+    "age_message": "Masz {{age}} lat.",
+    "items": "Masz {{count}} przedmiot.",
+    "items_other": "Masz {{count}} przedmiotów.",
+    
+    "currency": "Twoje saldo wynosi {{amount}} dolarów.",
+    "date": "Dziś jest {{date}}.",
+    
+    "today": "Dzisiejsza data to {{date, format}}.",
+    "detected_language_message": "Wykryty język to {{lang}}.",
+    
+    "section1": {
+        "title": "1. Podstawowe tłumaczenie",
+        "example": "Przykład implementacji:",
+        "source": "Kod źródłowy:",
+        "explanation_1": "1. i18next.init(): Funkcja inicjalizuje i18next i przyjmuje dwa argumenty: obiekt konfiguracyjny oraz funkcję zwrotną.",
+        "explanation_2": "2. lng: 'pl': Ustawia domyślny język na polski.",
+        "explanation_3": "3. resources: Zawiera zasoby tłumaczeń dla każdego języka, gdzie definiujemy klucze tłumaczeń. W tym przypadku mamy powitania i pożegnania dla języków angielskiego i polskiego.",
+        "explanation_4": "4. Funkcja zwrotna: Wywoływana po zakończeniu inicjalizacji. Używamy metody t('greeting') do uzyskania przetłumaczonego tekstu powitania i wyświetlenia go w elemencie HTML z id output."
+    },
+    "section2": {
+        "title": "2. Interpolacja",
+        "example": "Przykład implementacji:",
+        "source": "Kod źródłowy:",
+        "explanation_1": "1. i18next.t(‘welcome_user’, { name: 'Nowy użytkownik' }): Funkcja tłumaczy tekst na podstawie klucza welcome_user i wykonuje interpolację, zastępując {{name}} wartością 'Nowy użytkownik'.",
+        "explanation_2": "2. i18next.t(‘age_message’, { age: 25 }): Funkcja tłumaczy tekst na podstawie klucza age_message, a {{age}} jest zastępowane wartością 25.",
+        "explanation_3": "3. resources: Zawiera zasoby tłumaczeń, w tym klucz welcome_user z wartością „Witaj, {{name}}!” oraz klucz age_message, który brzmi „Masz {{age}} lat.”. Te wartości zawierają zastępniki, które zostaną zastąpione rzeczywistymi danymi."
+    },
+    "section3": {
+        "title": "3. Liczba mnoga",
+        "example": "Przykład implementacji:",
+        "source": "Kod źródłowy:",
+        "explanation_1": "1. i18next.t(‘items’, { count: 1 }): Funkcja tłumaczy tekst na podstawie klucza items i obsługuje formy pojedyncze, zastępując {{count}} wartością 1.",
+        "explanation_2": "2. i18next.t(‘items_other’, { count: 2 }): Funkcja tłumaczy tekst na podstawie klucza items_other i obsługuje formy mnogie, zastępując {{count}} wartością 2.",
+        "explanation_3": "3. resources: Zawiera zasoby tłumaczeń, w tym klucz items o wartości „Masz {{count}} przedmiot.” oraz klucz items_other, który brzmi „Masz {{count}} przedmiotów.”",
+        "explanation_4": "4. document.getElementById(‘output_items’).innerText: Wyświetla przetłumaczoną formę pojedynczą w elemencie HTML z id output_items.",
+        "explanation_5": "5. document.getElementById(‘output_items_plural’).innerText: Służy do wyświetlania przetłumaczonej formy mnogiej w elemencie HTML z id output_items_plural."
+    },
+    "section4": {
+        "title": "4. Formatowanie",
+        "example": "Przykład implementacji:",
+        "source": "Kod źródłowy:",
+        "explanation_1": "1. i18next.t(‘today’, { date: today }): Funkcja tłumaczy tekst na podstawie klucza today, gdzie {{date}} zostanie zastąpione sformatowanym obiektem daty.",
+        "explanation_2": "2. resources: Zawiera zasoby tłumaczeń, w tym klucz today z wartością „Dzisiejsza data to {{date, format}}.”",
+        "explanation_3": "3. document.getElementById(‘output_date’).innerText: Wyświetla przetłumaczony tekst z sformatowaną datą w elemencie HTML z id output_date."
+    },
+    "section5": {
+        "title": "5. Wykrywanie języka",
+        "example": "Przykład implementacji:",
+        "source": "Kod źródłowy:",
+        "explanation_1": "1. i18next.detectLanguage(): Funkcja wykrywa język użytkownika.",
+        "explanation_2": "2. document.getElementById(‘detected_language’).innerText: Wyświetla komunikat o wykrytym języku w elemencie HTML z id detected_language."
+    },
+    "right": {
         "selector": "Spis treści"
     },
-    "first":{
-        "1": "1 Kolumna",
-        "2": "2 Kolumna",
-        "3": "3 Kolumna"
+    "left": {
+        "selector": "Język"
+    },
+    "button": {
+        "en": "EN",
+        "pl": "PL",
+        "de": "DE"
     }
 }
