@@ -65,8 +65,8 @@
         "selector": "Język"
     },
     "button": {
-        "en": "EN",
-        "pl": "PL",
-        "de": "DE"
+        "en": "Angielski",
+        "pl": "Polski",
+        "de": "Niemiecki"
     }
 }

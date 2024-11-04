@@ -65,9 +65,9 @@
         "selector": "Language"
     },
     "button": {
-        "en": "EN",
-        "pl": "PL",
-        "de": "DE"
+        "en": "English",
+        "pl": "Polish",
+        "de": "German"
     }
 
 }
