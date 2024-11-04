@@ -10,7 +10,7 @@
     "items": "You have {{count}} item.",
     "items_other": "You have {{count}} items.",
 
-    "currency": "Your balance is {{amount}} dollars.",
+    "currency": "Your balance is {{amount}}.",
     "date": "Today is {{date}}.",
 
     "today": "Today's date is {{date, format}}.",
@@ -47,15 +47,17 @@
         "title": "4. Formatting",
         "example": "Example implementation:",
         "source": "Source Code:",
-        "explanation_1": "1. i18next.t(‘today’, { date: today }): This function translates text based on the key today, where the placeholder {{date}} will be replaced with the formatted date object.",
-        "explanation_2": "2. resources: Contains translation resources, including the key today which has the value “Today's date is {{date, format}}.”",
-        "explanation_3": "3. document.getElementById(‘output_date’).innerText: This method displays the translated text with the formatted date in the HTML element with id output_date."
+        "explanation_1": "1. const amount = 1234.56; and const date = new Date();: These variables represent a sample amount (currency) and date to be formatted for localization.",
+        "explanation_2": "2. const userLocale = i18next.language || 'en-US';: This retrieves the user's language setting from i18next, defaulting to 'en-US' if detection fails.",
+        "explanation_3": "3. date formatting with Intl.DateTimeFormat(userLocale).format(date): This formats the date according to the user's locale and passes it to i18next's translation function to dynamically update the text.",
+        "explanation_4": "4. currency formatting with Intl.NumberFormat(userLocale, { style: 'currency', currency: 'USD' }).format(amount): This formats the amount as currency using the user's locale and specified currency (USD), passing it to the i18next translation function.",
+        "explanation_5": "5. Updating HTML: document.getElementById('output_date').innerText and document.getElementById('output_currency').innerText dynamically display the translated and formatted values in specified elements on the webpage."
     },
     "section5": {
         "title": "5. Language Detection",
         "example": "Example implementation:",
         "source": "Source Code:",
-        "explanation_1": "1. i18next.detectLanguage(): This function detects the user's language.",
+        "explanation_1": "1. i18next.language: This function detects the user's language. (* .use(i18nextBrowserLanguageDetector) is required for this function to work properly *)",
         "explanation_2": "2. document.getElementById(‘detected_language’).innerText: This method displays the detected language message in the HTML element with id detected_language."
     },
     "right": {
@@ -65,9 +67,9 @@
         "selector": "Language"
     },
     "button": {
-        "en": "EN",
-        "pl": "PL",
-        "de": "DE"
+        "en": "English",
+        "pl": "Polish",
+        "de": "German"
     }
 
 }

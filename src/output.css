@@ -596,14 +596,6 @@ video {
   position: fixed;
 }
 
-.bottom-0 {
-  bottom: 0px;
-}
-
-.right-0 {
-  right: 0px;
-}
-
 .order-1 {
   order: 1;
 }
@@ -628,10 +620,6 @@ video {
   grid-column: span 12 / span 12;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .mx-6 {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -651,12 +639,16 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
+.mb-9 {
+  margin-bottom: 2.25rem;
 }
 
 .block {

@@ -7,10 +7,13 @@
     "source": "Wyjaśnienie kodu źródłowego",
     "welcome_user": "Witaj, {{name}}!",
     "age_message": "Masz {{age}} lat.",
+
     "items": "Masz {{count}} przedmiot.",
-    "items_other": "Masz {{count}} przedmiotów.",
+    "items_few": "Masz {{count}} przedmioty.",
+    "items_many": "Masz {{count}} przedmiotów.",
+    "items_other": "Masz {{count}} przedmiotów." ,
     
-    "currency": "Twoje saldo wynosi {{amount}} dolarów.",
+    "currency": "Twoje saldo wynosi {{amount}}.",
     "date": "Dziś jest {{date}}.",
     
     "today": "Dzisiejsza data to {{date, format}}.",
@@ -47,15 +50,17 @@
         "title": "4. Formatowanie",
         "example": "Przykład implementacji:",
         "source": "Kod źródłowy:",
-        "explanation_1": "1. i18next.t(‘today’, { date: today }): Funkcja tłumaczy tekst na podstawie klucza today, gdzie {{date}} zostanie zastąpione sformatowanym obiektem daty.",
-        "explanation_2": "2. resources: Zawiera zasoby tłumaczeń, w tym klucz today z wartością „Dzisiejsza data to {{date, format}}.”",
-        "explanation_3": "3. document.getElementById(‘output_date’).innerText: Wyświetla przetłumaczony tekst z sformatowaną datą w elemencie HTML z id output_date."
+        "explanation_1": "1. const amount = 1234.56; oraz const date = new Date();: Te zmienne reprezentują przykładową kwotę (walutę) i datę do sformatowania zgodnie z lokalizacją użytkownika.",
+        "explanation_2": "2. const userLocale = i18next.language || 'en-US';: Pobiera ustawienie języka użytkownika z i18next, domyślnie ustawiając 'en-US' w przypadku niepowodzenia wykrycia.",
+        "explanation_3": "3. Formatowanie daty za pomocą Intl.DateTimeFormat(userLocale).format(date): Formatuje datę zgodnie z lokalizacją użytkownika i przekazuje ją do funkcji tłumaczeniowej i18next, aby dynamicznie aktualizować tekst.",
+        "explanation_4": "4. Formatowanie waluty za pomocą Intl.NumberFormat(userLocale, { style: 'currency', currency: 'USD' }).format(amount): Formatuje kwotę jako walutę używając lokalizacji użytkownika i podanej waluty (USD), przekazując ją do funkcji tłumaczeniowej i18next.",
+        "explanation_5": "5. Aktualizacja HTML: document.getElementById('output_date').innerText oraz document.getElementById('output_currency').innerText dynamicznie wyświetlają przetłumaczone i sformatowane wartości w określonych elementach na stronie."
     },
     "section5": {
         "title": "5. Wykrywanie języka",
         "example": "Przykład implementacji:",
         "source": "Kod źródłowy:",
-        "explanation_1": "1. i18next.detectLanguage(): Funkcja wykrywa język użytkownika.",
+        "explanation_1": "1. i18next.detectLanguage(): Funkcja wykrywa język użytkownika. (* .use(i18nextBrowserLanguageDetector) jest to wymagane, aby funkcja działała poprawnie *)",
         "explanation_2": "2. document.getElementById(‘detected_language’).innerText: Wyświetla komunikat o wykrytym języku w elemencie HTML z id detected_language."
     },
     "right": {
@@ -65,8 +70,8 @@
         "selector": "Język"
     },
     "button": {
-        "en": "EN",
-        "pl": "PL",
-        "de": "DE"
+        "en": "Angielski",
+        "pl": "Polski",
+        "de": "Niemiecki"
     }
 }
